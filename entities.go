@@ -13,7 +13,7 @@ func (d dog) Weight() float64 {
 }
 
 func (d dog) calculateFood() float64 {
-	var (
+	const (
 		weightStep        float64 = 5
 		foodForWeightStep float64 = 10
 	)
@@ -39,16 +39,15 @@ func (c cat) Weight() float64 {
 }
 
 func (c cat) calculateFood() float64 {
-	var (
-		weightStep        float64 = 1
-		foodForWeightStep float64 = 7
+	const (
+		foodFor1KgWeight float64 = 7
 	)
 
 	if c.weight <= 0 {
 		return 0
 	}
 
-	foodNeededForMonth := c.weight / weightStep * foodForWeightStep
+	foodNeededForMonth := c.weight * foodFor1KgWeight
 	return foodNeededForMonth
 }
 
@@ -65,15 +64,12 @@ func (c cow) Weight() float64 {
 }
 
 func (c cow) calculateFood() float64 {
-	var (
-		weightStep        float64 = 1
-		foodForWeightStep float64 = 25
-	)
+	const foodFor1KgWeight float64 = 25
 
 	if c.weight <= 0 {
 		return 0
 	}
 
-	foodNeededForMonth := c.weight / weightStep * foodForWeightStep
+	foodNeededForMonth := c.weight * foodFor1KgWeight
 	return foodNeededForMonth
 }
